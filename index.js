@@ -75,17 +75,18 @@ function cumleKur(birinci, ikinci="", ucuncu="", dorduncu="", besinci=""){
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 1 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello World!"));
 
 
 /* (Oto test yok) cumleKur fonksiyonuna yalnızca 2 parametre göndererek "Hello World!" stringini elde edin, sonucu konsolde gözlemleyin */
 
-
+console.log(cumleKur("Hello", " World!"));
 
 
 /* (Oto test var) cumleKur fonksiyonuna 5 parametre göndererek "Ben iyi bir yazılımcı olacağım!" stringini elde edin, sonucu `bircumle` değişkenine atayın ve konsolde gözlemleyin */
 var bircumle;
-
+bircumle = cumleKur("Ben"," iyi"," bir"," yazılımcı"," olacağım!")
+console.log(bircumle);
 /* kodlar buraya */
 
 
@@ -104,10 +105,9 @@ var bircumle;
 	*/
 	
 
-function cumlelereDonustur(/* kodlar buraya */ ){
-	/* kodlar buraya */
-}
-
+	function cumlelereDonustur(dizi, ayrac = ",") {
+		return dizi.map(cumle => cumle.join(ayrac));
+	  }
 
 
 /* GÖREV 2:
@@ -120,10 +120,10 @@ function cumlelereDonustur(/* kodlar buraya */ ){
 			6. Oluşturulan paragraf döndürülecek
 	*/
 	
-function paragrafOlustur(/* kodlar buraya */ ){
-	/* kodlar buraya */ 
-}
-
+	function paragrafOlustur(dizi, cbCumleKur, cbCumlelerDonustur){
+		let yeni = cbCumlelerDonustur(dizi, " ")
+		return cbCumleKur(yeni[1], yeni[3], yeni[5], yeni[7], yeni[9])
+	}
 
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
@@ -131,7 +131,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
  */
 //3a çözümü
 /* kodlar buraya */
-
+meyveler.shift();
+meyveler.pop();
 
 
 
@@ -142,7 +143,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 //3b çözümü
 /* kodlar buraya */
 
-
+sebzeler.unshift("🐇");
+sebzeler.push("🦔");
 
 
 
@@ -154,8 +156,8 @@ function paragrafOlustur(/* kodlar buraya */ ){
 	//3c çözümü
 /* kodlar buraya */
 
-var manav;
-
+var manav = meyveler.concat(sebzeler);
+console.log(manav);
 
 
 
@@ -170,14 +172,18 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */){
-/* kodlar buraya */
+		function emojileriDonustur(mesaj, emojiler) {
+			for (let sembol in emojiler) {
+				mesaj = mesaj.replaceAll(sembol.toLowerCase(), emojiler[sembol]);
+				mesaj = mesaj.replaceAll(sembol.toUpperCase(), emojiler[sembol]);
+			}
+			return mesaj;
+			}
 
-}
+
+			console.log(emojileriDonustur("merhaba :d", emojiler));
 
 
-
-/*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa(){
     console.log('Kodlar çalışıyor');
     return 'as';
